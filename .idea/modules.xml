@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/ann-ai-frontend.iml" filepath="$PROJECT_DIR$/.idea/ann-ai-frontend.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/Ann-AI-Frontend.iml" filepath="$PROJECT_DIR$/.idea/Ann-AI-Frontend.iml" />
     </modules>
   </component>
 </project>
