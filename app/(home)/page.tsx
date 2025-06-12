@@ -1,8 +1,9 @@
+'use client';
+
 // app/(home)/page.tsx
 
 import { ArrowRight } from "lucide-react";
 import React from "react";
-import '../globals.css'
 
 export default function WebHomePage(): JSX.Element {
     // Navigation items
@@ -35,6 +36,7 @@ export default function WebHomePage(): JSX.Element {
             title: "You and for you only",
             description:
                 "As part of our open-source initiative, the project is fully transparent and trusted by all our users. And with cutting-edge, quantum-level encryption technology, your data is protected like never before",
+            src: "/image 1.png",
         },
         {
             tag: "ACTIVELY DEVELOPING",
@@ -42,145 +44,348 @@ export default function WebHomePage(): JSX.Element {
             description:
                 "With regular updates, new features, and community-driven improvements keeping you ahead of the curve. Our team will keep innovating to deliver a secure, seamless experience",
             alignRight: true,
+            src: "/image 2.png",
         },
         {
             tag: "CUSTOMERS FIRST",
             title: "Your feedback drives everything we do",
             description:
                 "Want a feature you think would be nice to have? Or having trouble using existing features? You can reach out to us anytime — we're just an email away!",
+            src: "/image 4.png",
         },
     ];
 
+    // Color palette for inline styles
+    const colors = {
+        background: "#18171c",
+        muted: "#777076",
+        accent: "#597d7c",
+        white: "#fff",
+        text: "#b3b3b3",
+    };
+
     return (
-        <div className="relative bg-[#0d0e14] min-h-screen w-full max-w-[1280px] mx-auto px-14">
-            {/* Header/Navigation */}
-            <header className="flex justify-between items-center pt-[30px]">
-                <div className="[font-family:'Poppins-ExtraBold',Helvetica] font-extrabold text-[#777076] text-[55px]">
-                    Ann-AI
-                </div>
-
-                <nav className="flex items-center gap-12">
-                    {navItems.map((item, index) => (
-                        <a
-                            key={index}
-                            href={item.href}
-                            className="[font-family:'Poppins-ExtraBold',Helvetica] font-extrabold text-white text-[32px] [text-shadow:0px_4px_4px_#00000040] whitespace-nowrap hover:text-[#777076] transition-colors duration-300"
+        <>
+            {/* Google Fonts for Poppins */}
+            <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+            <div
+                style={{
+                    background: colors.background,
+                    minHeight: "100vh",
+                    width: "100%",
+                    maxWidth: "100%",
+                    margin: "0 auto",
+                    paddingLeft: 24,
+                    paddingRight: 24,
+                    boxSizing: "border-box",
+                    fontFamily: "Poppins, sans-serif",
+                }}
+            >
+                {/* Header/Navigation */}
+                <header
+                    style={{
+                        display: "flex",
+                        justifyContent: "space-between",
+                        alignItems: "center",
+                        paddingTop: 32,
+                        paddingBottom: 16,
+                    }}
+                >
+                    <div
+                        style={{
+                            fontWeight: 800,
+                            color: colors.muted,
+                            fontSize: 44,
+                            letterSpacing: "-0.03em",
+                            userSelect: "none",
+                        }}
+                    >
+                        Ann-AI
+                    </div>
+                    <nav style={{ display: "flex", alignItems: "center", gap: 32 }}>
+                        {navItems.map((item, index) => (
+                            <a
+                                key={index}
+                                href={item.href}
+                                style={{
+                                    fontWeight: 700,
+                                    color: colors.white,
+                                    fontSize: 22,
+                                    textDecoration: "none",
+                                    marginRight: 0,
+                                    transition: "color 0.2s",
+                                    whiteSpace: "nowrap",
+                                }}
+                                onMouseOver={e => (e.currentTarget.style.color = colors.muted)}
+                                onMouseOut={e => (e.currentTarget.style.color = colors.white)}
+                            >
+                                {item.title}
+                            </a>
+                        ))}
+                        <button
+                            style={{
+                                height: 48,
+                                width: 140,
+                                background: colors.muted,
+                                color: colors.white,
+                                borderRadius: 12,
+                                fontWeight: 600,
+                                fontSize: 20,
+                                border: "none",
+                                cursor: "pointer",
+                                transition: "background 0.2s",
+                            }}
+                            onMouseOver={e => (e.currentTarget.style.background = "#a3a3a3")}
+                            onMouseOut={e => (e.currentTarget.style.background = colors.muted)}
                         >
-                            {item.title}
-                        </a>
-                    ))}
-
-                    <button className="h-14 w-[177px] bg-gradient-to-r from-[#777076] to-[#404556] rounded-lg hover:opacity-90 transition-opacity duration-300">
-                        <span className="[font-family:'Poppins-Medium',Helvetica] font-medium text-3xl text-white">
                             Log in
-                        </span>
-                    </button>
-                </nav>
-            </header>
-
-            {/* Hero Section */}
-            <section className="mt-[131px] flex justify-between">
-                <div className="max-w-[957px]">
-                    <h1 className="[font-family:'Poppins-Bold',Helvetica] font-bold text-white text-[64px] leading-tight">
-                        Take back your control
-                    </h1>
-                    <p className="[font-family:'Poppins-Medium',Helvetica] font-medium text-[#777076] text-[32px] mt-[37px] max-w-[949px] leading-relaxed">
-                        Chat with top AI bots like ChatGPT, Claude, and Gemini—all in one
-                        place. With Ann-AI, you can switch providers as you want in the same
-                        conversation, seamlessly!
-                    </p>
-
-                    <div className="flex items-center gap-8 mt-[74px]">
-                        <button className="h-[87px] w-[253px] bg-gradient-to-r from-[#777076] to-[#404556] rounded-lg hover:opacity-90 transition-opacity duration-300">
-                            <span className="[font-family:'Poppins-Bold',Helvetica] font-bold text-white text-[32px]">
-                                Chat Now
-                            </span>
                         </button>
+                    </nav>
+                </header>
 
-                        <div className="flex items-center group cursor-pointer">
-                            <span className="[font-family:'Inter-Regular',Helvetica] font-normal text-white text-2xl group-hover:text-[#777076] transition-colors duration-300">
-                                How to get an api key
-                            </span>
-                            <ArrowRight className="w-[42px] h-[42px] ml-2 text-white group-hover:text-[#777076] transition-colors duration-300" />
+                {/* Hero Section */}
+                <section
+                    style={{
+                        marginTop: 80,
+                        display: "flex",
+                        flexDirection: "row",
+                        justifyContent: "space-between",
+                        alignItems: "flex-start",
+                        gap: 40,
+                    }}
+                >
+                    <div style={{ maxWidth: 700 }}>
+                        <h1
+                            style={{
+                                fontWeight: 800,
+                                color: colors.white,
+                                fontSize: 56,
+                                lineHeight: 1.1,
+                                marginBottom: 24,
+                            }}
+                        >
+                            Take back your control
+                        </h1>
+                        <p
+                            style={{
+                                fontWeight: 500,
+                                color: colors.muted,
+                                fontSize: 26,
+                                marginBottom: 40,
+                                lineHeight: 1.5,
+                            }}
+                        >
+                            Chat with top AI bots like ChatGPT, Claude, and Gemini—all in one
+                            place. With Ann-AI, you can switch providers as you want in the same
+                            conversation, seamlessly!
+                        </p>
+
+                        <div style={{ display: "flex", alignItems: "center", gap: 32 }}>
+                            <button
+                                style={{
+                                    height: 48,
+                                    width: 180,
+                                    background: colors.muted,
+                                    color: colors.white,
+                                    borderRadius: 12,
+                                    fontWeight: 700,
+                                    fontSize: 22,
+                                    border: "none",
+                                    cursor: "pointer",
+                                    transition: "background 0.2s",
+                                }}
+                                onMouseOver={e => (e.currentTarget.style.background = "#a3a3a3")}
+                                onMouseOut={e => (e.currentTarget.style.background = colors.muted)}
+                            >
+                                Chat Now
+                            </button>
+
+                            <div
+                                style={{
+                                    display: "flex",
+                                    alignItems: "center",
+                                    cursor: "pointer",
+                                    color: colors.white,
+                                    fontSize: 20,
+                                    fontWeight: 400,
+                                    transition: "color 0.2s",
+                                }}
+                                onMouseOver={e => (e.currentTarget.style.color = colors.muted)}
+                                onMouseOut={e => (e.currentTarget.style.color = colors.white)}
+                            >
+                                <span>How to get an api key</span>
+                                <ArrowRight style={{ width: 32, height: 32, marginLeft: 8 }} />
+                            </div>
                         </div>
                     </div>
-                </div>
 
-                <div className="relative w-[430px] h-[687px]">
-                    <img
-                        className="absolute w-[182px] h-[239px] top-0 left-[90px] object-cover rounded-xl shadow-2xl"
-                        alt="AI visualization"
-                        src="/image 1.png"
-                    />
-                    <img
-                        className="absolute w-[229px] h-[201px] top-[286px] left-[201px] rounded-xl shadow-2xl"
-                        alt="AI visualization"
-                        src="/image 2.png"
-                    />
-                    <img
-                        className="absolute w-[238px] h-[235px] top-[452px] left-0 object-cover rounded-xl shadow-2xl"
-                        alt="AI visualization"
-                        src="/image 4.png"
-                    />
-                </div>
-            </section>
+                    <div style={{ position: "relative", width: 430, height: 320 }}>
+                        <img
+                            style={{
+                                position: "absolute",
+                                width: 182,
+                                height: 182,
+                                objectFit: "contain",
+                                borderRadius: 16,
+                                
+                                top: 0,
+                                left: 80,
+                                background: "none",
+                            }}
+                            alt="AI visualization 1"
+                            src="/image 1.png"
+                        />
+                        <img
+                            style={{
+                                position: "absolute",
+                                width: 140,
+                                height: 140,
+                                objectFit: "contain",
+                                borderRadius: 16,
+                            
+                                top: 140,
+                                left: 200,
+                                
+                            }}
+                            alt="AI visualization 2"
+                            src="/image 2.png"
+                        />
+                        <img
+                            style={{
+                                position: "absolute",
+                                width: 160,
+                                height: 160,
+                                objectFit: "contain",
+                                borderRadius: 16,
+                                
+                                top: 240,
+                                left: 0,
+                                
+                            }}
+                            alt="AI visualization 3"
+                            src="/image 4.png"
+                        />
+                    </div>
+                </section>
 
-            {/* Stats Section */}
-            <section className="mt-[154px] flex justify-between gap-6">
-                {statsCards.map((stat, index) => (
-                    <div
-                        key={index}
-                        className="w-[353px] h-[225px] bg-gradient-to-br from-[#777076] to-[#404556] rounded-[var(--shape-corner-large)] shadow-xl hover:shadow-2xl transition-shadow duration-300"
-                    >
-                        <div className="p-0 flex flex-col items-center justify-center h-full">
-                            <div className="[font-family:'Poppins-Medium',Helvetica] font-medium text-white text-8xl">
+                {/* Stats Section */}
+                <section
+                    style={{
+                        marginTop: 80,
+                        display: "flex",
+                        flexDirection: "row",
+                        justifyContent: "space-between",
+                        gap: 24,
+                    }}
+                >
+                    {statsCards.map((stat, index) => (
+                        <div
+                            key={index}
+                            style={{
+                                flex: 1,
+                                minWidth: 220,
+                                background: "#23222a",
+                                borderRadius: 16,
+                                boxShadow: "0 4px 24px 0 rgba(0,0,0,0.15)",
+                                padding: 24,
+                                display: "flex",
+                                flexDirection: "column",
+                                alignItems: "center",
+                                justifyContent: "center",
+                                transition: "box-shadow 0.3s",
+                            }}
+                        >
+                            <div
+                                style={{
+                                    fontWeight: 700,
+                                    color: colors.white,
+                                    fontSize: 36,
+                                    marginBottom: 8,
+                                }}
+                            >
                                 {stat.value}
                             </div>
-                            <div className="[font-family:'Poppins-Medium',Helvetica] font-medium text-white text-[28px] text-center mt-5 px-5">
+                            <div
+                                style={{
+                                    fontWeight: 500,
+                                    color: colors.white,
+                                    fontSize: 20,
+                                    textAlign: "center",
+                                }}
+                            >
                                 {stat.description}
                             </div>
                         </div>
-                    </div>
-                ))}
-            </section>
-
-            {/* Feature Sections */}
-            {featureSections.map((section, index) => (
-                <section
-                    key={index}
-                    className={`mt-[139px] flex ${section.alignRight ? "flex-row-reverse" : "flex-row"} items-center gap-16`}
-                >
-                    {index === 1 && (
-                        <img
-                            className="w-[295px] h-[295px] rounded-xl shadow-2xl"
-                            alt="Team members working online"
-                            src="/image 1.png"
-                        />
-                    )}
-
-                    <div
-                        className={`max-w-[786px] ${section.alignRight ? "text-right" : "text-left"}`}
-                    >
-                        <div className="[font-family:'Poppins-Bold',Helvetica] font-bold text-[#597d7c] text-2xl">
-                            {section.tag}
-                        </div>
-                        <h2 className="[font-family:'Poppins-Bold',Helvetica] font-bold text-white text-4xl mt-[10px]">
-                            {section.title}
-                        </h2>
-                        <p className="[font-family:'Poppins-Medium',Helvetica] font-medium text-[#777076] text-2xl mt-[26px] leading-relaxed">
-                            {section.description}
-                        </p>
-                    </div>
-
-                    {index === 2 && (
-                        <img
-                            className="w-[410px] h-[340px] rounded-xl shadow-2xl"
-                            alt="Male specialist working in support service"
-                            src="/image 2.png"
-                        />
-                    )}
+                    ))}
                 </section>
-            ))}
-        </div>
+
+                {/* Feature Sections */}
+                {featureSections.map((section, index) => (
+                    <section
+                        key={index}
+                        style={{
+                            display: "flex",
+                            justifyContent: "space-between",
+                            alignItems: "center",
+                            gap: 16,
+                            marginTop: 80,
+                            flexDirection: section.alignRight ? "row-reverse" : "row",
+                        }}
+                    >
+                        <img
+                            style={{
+                                width: 180,
+                                height: 180,
+                                borderRadius: 16,
+                                
+                                objectFit: "contain",
+                                background: "none",
+                            }}
+                            alt={section.title}
+                            src={section.src}
+                        />
+                        <div
+                            style={{
+                                maxWidth: 600,
+                                textAlign: section.alignRight ? "right" : "left",
+                            }}
+                        >
+                            <div
+                                style={{
+                                    fontWeight: 700,
+                                    color: colors.accent,
+                                    fontSize: 18,
+                                    marginBottom: 8,
+                                    letterSpacing: 1,
+                                    textTransform: "uppercase",
+                                }}
+                            >
+                                {section.tag}
+                            </div>
+                            <h2
+                                style={{
+                                    fontWeight: 800,
+                                    color: colors.white,
+                                    fontSize: 28,
+                                    marginBottom: 8,
+                                }}
+                            >
+                                {section.title}
+                            </h2>
+                            <p
+                                style={{
+                                    fontWeight: 500,
+                                    color: colors.muted,
+                                    fontSize: 20,
+                                    lineHeight: 1.5,
+                                }}
+                            >
+                                {section.description}
+                            </p>
+                        </div>
+                    </section>
+                ))}
+            </div>
+        </>
     );
 }
