@@ -30,6 +30,60 @@ export default function WebRegisterPage(): JSX.Element {
           <form style={{ display: "flex", flexDirection: "column", gap: 24 }}>
             <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
               <label
+                htmlFor="name"
+                style={{
+                  fontWeight: 500,
+                  color: "#fff",
+                  fontSize: 18,
+                  marginBottom: 4,
+                }}
+              >
+                Name
+              </label>
+              <input
+                id="name"
+                placeholder="Value"
+                style={{
+                  minWidth: 180,
+                  padding: "12px 16px",
+                  background: "#60515c",
+                  borderRadius: 12,
+                  border: "1px solid #0d0e14",
+                  color: "#e0e0e0",
+                  fontSize: 16,
+                  outline: "none",
+                }}
+              />
+            </div>
+            <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
+              <label
+                htmlFor="surname"
+                style={{
+                  fontWeight: 500,
+                  color: "#fff",
+                  fontSize: 18,
+                  marginBottom: 4,
+                }}
+              >
+                Surname
+              </label>
+              <input
+                id="surname"
+                placeholder="Value"
+                style={{
+                  minWidth: 180,
+                  padding: "12px 16px",
+                  background: "#60515c",
+                  borderRadius: 12,
+                  border: "1px solid #0d0e14",
+                  color: "#e0e0e0",
+                  fontSize: 16,
+                  outline: "none",
+                }}
+              />
+            </div>
+            <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
+              <label
                 htmlFor="email"
                 style={{
                   fontWeight: 500,
