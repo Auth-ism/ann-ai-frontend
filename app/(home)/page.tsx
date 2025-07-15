@@ -3,7 +3,8 @@
 // app/(home)/page.tsx
 
 import { ArrowRight } from "lucide-react";
-import React from "react";
+import React, {JSX} from "react";
+import {useRouter} from "next/navigation";
 
 export default function WebHomePage(): JSX.Element {
     // Navigation items
@@ -12,6 +13,8 @@ export default function WebHomePage(): JSX.Element {
         { title: "Contact Us", href: "#" },
         { title: "Document", href: "#" },
     ];
+
+    const router = useRouter();
 
     // Stats cards data
     const statsCards = [
@@ -137,6 +140,7 @@ export default function WebHomePage(): JSX.Element {
                             }}
                             onMouseOver={e => (e.currentTarget.style.background = "#a3a3a3")}
                             onMouseOut={e => (e.currentTarget.style.background = colors.muted)}
+                            onClick={()=>router.push("/login")}
                         >
                             Log in
                         </button>
@@ -196,8 +200,9 @@ export default function WebHomePage(): JSX.Element {
                                 }}
                                 onMouseOver={e => (e.currentTarget.style.background = "#a3a3a3")}
                                 onMouseOut={e => (e.currentTarget.style.background = colors.muted)}
+                                onClick={()=> router.push("/register")}
                             >
-                                Chat Now
+                                Register
                             </button>
 
                             <div

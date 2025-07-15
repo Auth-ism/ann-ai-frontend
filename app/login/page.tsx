@@ -1,7 +1,7 @@
 'use client';
 import React from "react";
 
-export default function WebLoginPage(): JSX.Element {
+export default function WebLoginPage(): React.ReactElement {
   return (
     <>
       {/* Google Fonts for Poppins */}
