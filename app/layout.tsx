@@ -55,7 +55,7 @@ export default function RootLayout({
 
   return (
     <html lang="en">
-      <body className={`${geistSans.variable} ${geistMono.variable} ${poppins.variable} antialiased`} style={{ margin: 0, padding: 0 }}>
+      <body className={`${geistSans.variable} ${geistMono.variable} ${poppins.variable} antialiased`} style={{ margin: 0, padding: 0, position: "relative" }}>
         {children}
       </body>
     </html>
