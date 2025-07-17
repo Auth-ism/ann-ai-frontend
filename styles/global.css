@@ -1,0 +1,48 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+    --color-dark-1: #13252F;
+    --color-dark-2: #1E2F41;
+    --color-blue: #4A7598;
+    --color-light: #CCFBED;
+}
+
+body {
+    min-height: 100vh;
+    background: linear-gradient(135deg, var(--color-dark-1) 0%, var(--color-dark-2) 40%, var(--color-blue) 70%, var(--color-light) 100%);
+    color: var(--color-light);
+    font-family: 'Inter', sans-serif;
+}
+
+/* Topbar ve Sidebar için özel renkler */
+.topbar {
+    background: rgba(19, 37, 47, 0.95);
+    color: var(--color-light);
+}
+
+.sidebar {
+    background: linear-gradient(180deg, var(--color-dark-2) 60%, var(--color-blue) 100%);
+    color: var(--color-light);
+}
+
+/* Butonlar ve aktif durumlar */
+.btn-primary {
+    background: var(--color-blue);
+    color: var(--color-light);
+}
+.btn-primary:hover {
+    background: var(--color-light);
+    color: var(--color-dark-2);
+}
+
+/* Kategori ve promptlar için hover/aktif renkler */
+.category-active {
+    background: var(--color-light);
+    color: var(--color-dark-1);
+}
+.prompt-hover:hover {
+    background: var(--color-blue);
+    color: var(--color-light);
+}
