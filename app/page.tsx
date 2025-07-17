@@ -1,103 +1,200 @@
+'use client';
+
+import {useRouter} from "next/navigation";
+import { ArrowRight } from "lucide-react";
 import Image from "next/image";
 
-export default function Home() {
-  return (
-    <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="font-mono list-inside list-decimal text-sm/6 text-center sm:text-left">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] font-mono font-semibold px-1 py-0.5 rounded">
-              app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
-        </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
+export default function Home() {
+
+    const router = useRouter();
+
+    const featureSections = [
+        {
+            tag: "QUANTUM LEVEL PROTECTION",
+            title: "You and for you only",
+            description:
+                "As part of our open-source initiative, the project is fully transparent and trusted by all our users. And with cutting-edge, quantum-level encryption technology, your data is protected like never before",
+            src: "/image 1.png",
+        },
+        {
+            tag: "ACTIVELY DEVELOPING",
+            title: "Don't miss a thing",
+            description:
+                "With regular updates, new features, and community-driven improvements keeping you ahead of the curve. Our team will keep innovating to deliver a secure, seamless experience",
+            alignRight: true,
+            src: "/image 2.png",
+        },
+        {
+            tag: "CUSTOMERS FIRST",
+            title: "Your feedback drives everything we do",
+            description:
+                "Want a feature you think would be nice to have? Or having trouble using existing features? You can reach out to us anytime — we're just an email away!",
+            src: "/image 4.png",
+        },
+    ];
+    const statsCards = [
+        {
+            value: "-50%",
+            description: "Save your money to another day",
+        },
+        {
+            value: "60%",
+            description: "Reaching out to all planned features",
+        },
+        {
+            value: "+23%",
+            description: "Faster than other competitors",
+        },
+    ];
+    const colors = {
+        background: "#18171c",
+        muted: "#777076",
+        accent: "#597d7c",
+        white: "#fff",
+        text: "#b3b3b3",
+    };
+    const navItems = [
+        { title: "What's New?", href: "#" },
+        { title: "Contact Us", href: "#" },
+        { title: "Document", href: "#" },
+    ];
+
+  return (
+      <>
+          <div className="min-h-[100vh] w-full max-w-full mx-auto pl-6 pr-6 box-border font-poppins">
+              {/* Header/Navigation */}
+              <header className="flex justify-between items-center pt-8 pb-4">
+                  <div className="font-extrabold text-[44px] tracking-[-0.03em] select-none" style={{color: colors.muted}}>
+                      Ann-AI
+                  </div>
+                  <nav className="flex items-center gap-8">
+                      {navItems.map((item, index) => (
+                          <a
+                              key={index}
+                              href={item.href}
+                              className="font-bold text-[22px] no-underline mr-0 transition-colors duration-200 whitespace-nowrap"
+                              style={{color: colors.white}}
+                              onMouseOver={e => (e.currentTarget.style.color = colors.muted)}
+                              onMouseOut={e => (e.currentTarget.style.color = colors.white)}
+                          >
+                              {item.title}
+                          </a>
+                      ))}
+                      <button
+                          className="h-[48px] w-[140px] rounded-xl font-semibold text-[20px] border-0 cursor-pointer transition-colors duration-200"
+                          style={{background: colors.muted, color: colors.white}}
+                          onMouseOver={e => (e.currentTarget.style.background = "#a3a3a3")}
+                          onMouseOut={e => (e.currentTarget.style.background = colors.muted)}
+                          onClick={()=>router.push("/login")}
+                      >
+                          Log in
+                      </button>
+                  </nav>
+              </header>
+
+              {/* Hero Section */}
+              <section className='mt-20 flex flex-row justify-between items-start gap-10'>
+                  <div className='max-w-[700px]'>
+                      <h1 className="font-extrabold text-[56px] leading-[1.1] mb-6" style={{color: colors.white}}>
+                          Take back your control
+                      </h1>
+                      <p className="font-medium text-[26px] mb-10 leading-[1.5]" style={{color: colors.muted}}>
+                          Chat with top AI bots like ChatGPT, Claude, and Gemini—all in one
+                          place. With Ann-AI, you can switch providers as you want in the same
+                          conversation, seamlessly!
+                      </p>
+
+                      <div className='flex items-center'>
+                          <button
+                              className="h-12 w-[180px] rounded-xl font-bold text-[22px] border-0 cursor-pointer transition-colors duration-200"
+                              style={{background: colors.muted, color: colors.white}}
+                              onMouseOver={e => (e.currentTarget.style.background = "#a3a3a3")}
+                              onMouseOut={e => (e.currentTarget.style.background = colors.muted)}
+                              onClick={()=> router.push("/register")}>
+                              Register
+                          </button>
+
+                          <div
+                              className="flex items-center cursor-pointer text-xl font-normal transition-colors duration-200"
+                              style={{color: colors.white}}
+                              onMouseOver={e => (e.currentTarget.style.color = colors.muted)}
+                              onMouseOut={e => (e.currentTarget.style.color = colors.white)}
+                          >
+                              <span>How to get an api key</span>
+                              <ArrowRight className='w-8 h-8 ml-2'/>
+                          </div>
+                      </div>
+                  </div>
+
+                  <div className='relative w-[430px] h-[320px]'>
+                      <Image
+                          width={182}
+                          height={182}
+                          className='absolute object-contain rounded-2xl top-0 left-20 bg-none'
+                          alt="AI visualization 1"
+                          src="/image%201.png"
+                      />
+                      <Image
+                          width={140}
+                          height={140}
+                          className='absolute object-contain rounded-2xl top-[140px] left-[200px]'
+                          alt="AI visualization 2"
+                          src="/image%202.png"
+                      />
+                      <Image
+                          width={160}
+                          height={160}
+                          className='absolute object-contain rounded-2xl top-[240px] left-0'
+                          alt="AI visualization 3"
+                          src="/image%204.png"
+                      />
+                  </div>
+              </section>
+
+              {/* Stats Section */}
+              <section className='mt-20 flex flex-row justify-between gap-6'>
+                  {statsCards.map((stat, index) => (
+                      <div
+                          key={index}
+                          style={{boxShadow: "0 4px 24px 0 rgba(0,0,0,0.15)"}}
+                          className='flex-1 min-w-[220px] bg-[#23222a] rounded-2xl p-6 flex flex-col items-center justify-center transition-shadow duration-300'>
+                          <div className="font-bold text-[36px] mb-2" style={{color: colors.white}}>
+                              {stat.value}
+                          </div>
+                          <div className="font-medium text-[20px] text-center" style={{color: colors.white}}>
+                              {stat.description}
+                          </div>
+                      </div>
+                  ))}
+              </section>
+
+              {/* Feature Sections */}
+              {featureSections.map((section, index) => (
+                  <section
+                      key={index}
+                      className={`flex justify-between items-center gap-4 mt-20 ${section.alignRight ? "flex-row-reverse" : "flex-row"}`}>
+                      <Image
+                          width={180}
+                          height={180}
+                          className='rounded-2xl object-contain bg-none'
+                          alt={section.title}
+                          src={section.src}
+                      />
+                      <div className={`max-w-[600px] ${section.alignRight ? "text-right" : "text-left"}`}>
+                          <div className="font-bold text-[18px] mb-2 tracking-[1px] uppercase" style={{color: colors.accent}}>
+                              {section.tag}
+                          </div>
+                          <h2 className="font-extrabold text-[28px] mb-2" style={{color: colors.white}}>
+                              {section.title}
+                          </h2>
+                          <p className="font-medium text-[20px] leading-[1.5]" style={{color: colors.muted}}>
+                              {section.description}
+                          </p>
+                      </div>
+                  </section>
+              ))}
+          </div>
+      </>
   );
 }

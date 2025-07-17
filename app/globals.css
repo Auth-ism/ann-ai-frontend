@@ -1,8 +1,14 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
+  --background: #18171c;
   --foreground: #171717;
+}
+
+@layer components {
+  .font-poppins {
+    font-family: 'Poppins', sans-serif;
+  }
 }
 
 @theme inline {
@@ -23,4 +29,11 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+  width: 100vw;
 }
