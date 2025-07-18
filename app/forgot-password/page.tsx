@@ -39,7 +39,7 @@ export default function ForgotPasswordPage(): React.ReactElement {
                     <div
                         style={{
                             flex: 1,
-                            background: "#d5bfff",
+                            background: "#e0e0e0",
                             display: "flex",
                             alignItems: "center",
                             justifyContent: "center",
@@ -47,7 +47,7 @@ export default function ForgotPasswordPage(): React.ReactElement {
                         }}
                     >
                         <Image
-                            src="/forgot-password.gif" // örnek gif veya png ekle
+                            src="/annai.gif" // örnek gif veya png ekle
                             alt="Forgot password illustration"
                             width={200}
                             height={200}
