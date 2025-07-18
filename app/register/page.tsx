@@ -1,86 +1,174 @@
-'use client';
-import React from "react";
+"use client";
+import React, { useState } from "react";
+import Image from "next/image";
+import { Eye, EyeOff } from "lucide-react";
 
-export default function WebRegisterPage() {
+export default function RegisterPage(): React.ReactElement {
+  const [showPassword, setShowPassword] = useState(false);
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+
   return (
-    <>
-      <div className='bg-[#1e1e1e] flex justify-center items-center w-full min-h-full'>
+      <>
+        <link
+            href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
+            rel="stylesheet"
+        />
         <div
-            style={{boxShadow: "0 4px 24px 0 rgba(0,0,0,0.15)"}}
-            className='w-[400px] bg-[#777076] rounded-4xl border border-[#0d0e14] p-8'
+            style={{
+              background: "#1e1e1e",
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+              width: "100vw",
+              minHeight: "100vh",
+              fontFamily: "Poppins, sans-serif",
+              padding: 16,
+            }}
         >
-          <form className='flex flex-col gap-6'>
-            <div className='flex flex-col gap-2'>
-              <label htmlFor="name" className='font-medium text-[#fff] text-[18px] mb-2'>
-                Name
-              </label>
-              <input
-                id="name"
-                placeholder="Value"
-                className='min-w-[180px] p-[12px_16px] bg-[#60515c] rounded-xl border border-[#0d0e14] text-[#e0e0e0] text-[16px] outline-none'
-              />
-            </div>
-            <div className='flex flex-col gap-2'>
-              <label
-                htmlFor="surname"
-                className='font-medium text-[#fff] text-[18px] mb-1'>
-                Surname
-              </label>
-              <input
-                id="surname"
-                placeholder="Value"
-                className='min-w-[180px] p-[12px_16px] bg-[#60515c] rounded-xl border border-[#0d0e14] text-[#e0e0e0] text-[16px] outline-none'
-              />
-            </div>
-            <div className='flex flex-col gap-2'>
-              <label
-                htmlFor="email"
-                className='font-medium text-[#fff] text-[18px] mb-1'>
-                Email
-              </label>
-              <input
-                id="email"
-                placeholder="Value"
-                className='min-w-[180px] p-[12px_16px] bg-[#60515c] rounded-xl border border-[#0d0e14] text-[#e0e0e0] text-[16px] outline-none'
+          <div
+              style={{
+                display: "flex",
+                flexDirection: "row",
+                width: 850,
+                background: "#726C6C",
+                borderRadius: 32,
+                border: "1px solid #0d0e14",
+                boxShadow: "0 4px 24px rgba(0,0,0,0.2)",
+                overflow: "hidden",
+              }}
+          >
+            {/* Left Side */}
+            <div
+                style={{
+                  flex: 1,
+                  background: "#e0e0e0",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  padding: 32,
+                }}
+            >
+              <Image
+                  src="/annai.gif" // örnek GIF veya PNG
+                  alt="Register illustration"
+                  width={250}
+                  height={250}
+                  style={{ borderRadius: 16 }}
+                  unoptimized
               />
             </div>
 
-            <div className='flex flex-col gap-2'>
-              <label
-                htmlFor="password"
-                className='font-medium text-[#fff] text-[18px] mb-1'>
-                Password
-              </label>
-              <input
-                id="password"
-                type="password"
-                placeholder="Value"
-                className='min-w-[180px] p-[12px_16px] bg-[#60515c] rounded-xl border border-[#0d0e14] text-[#e0e0e0] text-[16px] outline-none'
-              />
-            </div>
+            {/* Right Side */}
+            <div style={{ flex: 1.2, padding: 32 }}>
+              <div style={{ textAlign: "right", fontSize: 14, color: "#f0f0f0" }}>
+                Already have an account?{" "}
+                <a href="/login" style={{ color: "#a9e0ff", textDecoration: "underline" }}>
+                  Sign in
+                </a>
+              </div>
 
-            <div className='flex flex-col gap-2'>
-              <label
-                htmlFor="confirm-password"
-                className='font-medium text-[#fff] text-[18px] mb-1'>
-                Confirm Password
-              </label>
-              <input
-                id="confirm-password"
-                type="password"
-                placeholder="Value"
-                className='min-w-[180px] p-[12px_16px] bg-[#60515c] rounded-xl border border-[#0d0e14] text-[#e0e0e0] text-[16px] outline-none'
-              />
-            </div>
+              <h2
+                  style={{
+                    fontSize: 28,
+                    fontWeight: 700,
+                    color: "#ffffff",
+                    marginTop: 24,
+                    marginBottom: 8,
+                  }}
+              >
+                Create Account
+              </h2>
+              <p style={{ color: "#e0e0e0", marginBottom: 24 }}>
+                Join us and start your journey!
+              </p>
 
-            <button
-              type="submit"
-              className='flex justify-center items-center gap-2 p-3 bg-[#2C2C2C] rounded-xl border border-[#777076] text-[#fff] font-semibold text-[18px] cursor-pointer mt-2'>
-              Register
-            </button>
-          </form>
+              <form style={{ display: "flex", flexDirection: "column", gap: 16 }}>
+                <input
+                    type="text"
+                    placeholder="Enter username"
+                    style={inputStyle}
+                />
+
+                <input
+                    type="email"
+                    placeholder="Enter email"
+                    style={inputStyle}
+                />
+
+                {/* Password */}
+                <div style={{ position: "relative", width: "100%" }}>
+                  <input
+                      type={showPassword ? "text" : "password"}
+                      placeholder="Password"
+                      style={inputStyle}
+                  />
+                  <button
+                      type="button"
+                      onClick={() => setShowPassword(!showPassword)}
+                      style={iconButtonStyle}
+                  >
+                    {showPassword ? <EyeOff size={20} color="#ccc" /> : <Eye size={20} color="#ccc" />}
+                  </button>
+                </div>
+
+                {/* Confirm Password */}
+                <div style={{ position: "relative", width: "100%" }}>
+                  <input
+                      type={showConfirmPassword ? "text" : "password"}
+                      placeholder="Confirm password"
+                      style={inputStyle}
+                  />
+                  <button
+                      type="button"
+                      onClick={() => setShowConfirmPassword(!showConfirmPassword)}
+                      style={iconButtonStyle}
+                  >
+                    {showConfirmPassword ? <EyeOff size={20} color="#ccc" /> : <Eye size={20} color="#ccc" />}
+                  </button>
+                </div>
+
+                <button
+                    type="submit"
+                    style={{
+                      background: "#2C2C2C",
+                      padding: "12px",
+                      borderRadius: 12,
+                      color: "#fff",
+                      fontWeight: 600,
+                      fontSize: 18,
+                      cursor: "pointer",
+                      border: "1px solid #777076",
+                    }}
+                >
+                  Register
+                </button>
+              </form>
+            </div>
+          </div>
         </div>
-      </div>
-    </>
+      </>
   );
 }
+
+const inputStyle: React.CSSProperties = {
+  padding: "12px 16px",
+  borderRadius: 12,
+  border: "1px solid #0d0e14",
+  background: "#726C6C",
+  color: "#fff",
+  fontSize: 16,
+  width: "100%",
+  outline: "none",
+  boxSizing: "border-box",
+};
+
+const iconButtonStyle: React.CSSProperties = {
+  position: "absolute",
+  right: 12,
+  top: "50%",
+  transform: "translateY(-50%)",
+  cursor: "pointer",
+  background: "transparent",
+  border: "none",
+  padding: 0,
+};
