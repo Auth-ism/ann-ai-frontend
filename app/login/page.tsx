@@ -61,7 +61,7 @@ export default function WebLoginPage(): React.ReactElement {
                 </span>
                             </div>
 
-                            <a href="#"
+                            <a href="/forgot-password"
                                 className='text-[#fff] text-[14px] underline self-end'>
                                 Recovery Password
                             </a>
